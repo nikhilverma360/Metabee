@@ -12,4 +12,8 @@ contract GameToken is ERC20, Ownable {
     function faucet() public {
         _mint(msg.sender, 1000 ether);
     }
+
+    function mintTo(address _to) public {
+        _mint(_to, 1000 ether);
+    }
 }
