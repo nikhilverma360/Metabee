@@ -72,6 +72,9 @@ contract Game is ERC721Enumerable, IERC721Receiver, Ownable {
         require(_mintAmount <= maxMintAmount);
         require(supply + _mintAmount <= maxSupply);
 
+        //custom token implementation....
+        // .............to do ..............
+
         if (msg.sender != owner()) {
             if (whitelisted[msg.sender] != true) {
                 if (presaleWallets[msg.sender] != true) {
@@ -98,9 +101,12 @@ contract Game is ERC721Enumerable, IERC721Receiver, Ownable {
     function startMining(uint256 _minerId, uint256 _mineId) public {
         require(block.timestamp - _minerlog[msg.sender].timestamp > 1 minutes);
         require(_minerlog[msg.sender].staked != true);
+        require(ownerOf(_minerId) == msg.sender);
         _minerlog[msg.sender].minerId = _minerId;
         _minerlog[msg.sender].mineId = _mineId;
         _minerlog[msg.sender].timestamp = block.timestamp;
+        // durebility to be set
+        _axeMeta[_minerId].durability = _axeMeta[_minerId].durability - 4;
 
         //luckey implementation.......
         //add chain link vrf....
@@ -124,6 +130,11 @@ contract Game is ERC721Enumerable, IERC721Receiver, Ownable {
         // to be inplemented.....
 
         _minerlog[msg.sender].reward = 0;
+    }
+
+    function fixDurability() public {
+        // fixing durability
+        // 1 erc20 is 1 durability fix
     }
 
     function walletOfOwner(address _owner)
