@@ -8,25 +8,25 @@ import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract TheGame is IERC721Receiver, Ownable {
-    struct Mines {
+    struct Locations {
         string name;
         uint256 lucky;
         uint256 staminaRequired;
         uint256 rewardLowerLimit;
         uint256 rewardUpperLimit;
     }
-    mapping(uint256 => Mines) public _mines;
+    mapping(uint256 => Locations) public _locations;
 
-    struct MinerLog {
+    struct PlayerLog {
         bool gameJoined;
         bool staked;
-        uint256 minerId;
-        uint256 mineId;
+        uint256 nftId;
+        uint256 locationId;
         uint256 timestamp;
         uint256 reward;
         uint256 stamina;
     }
-    mapping(address => MinerLog) public _minerlog;
+    mapping(address => PlayerLog) public _playerlog;
 
     IERC20 public gameToken;
     IERC721 public gameNFT;
@@ -50,73 +50,77 @@ contract TheGame is IERC721Receiver, Ownable {
     //users
 
     function joinGame() public {
-        require(_minerlog[msg.sender].gameJoined != true, "You already Joined");
-        _minerlog[msg.sender] = MinerLog(true, false, 0, 0, 0, 0, 100);
+        require(
+            _playerlog[msg.sender].gameJoined != true,
+            "You already Joined"
+        );
+        _playerlog[msg.sender] = PlayerLog(true, false, 0, 0, 0, 0, 100);
     }
 
-    function startMining(uint256 _minerId, uint256 _mineId) public {
-        require(_minerlog[msg.sender].gameJoined, "join the game first");
+    function startHunting(uint256 _nftId, uint256 _locationId) public {
+        require(_playerlog[msg.sender].gameJoined, "join the game first");
         require(
-            block.timestamp - _minerlog[msg.sender].timestamp > 1 minutes,
+            block.timestamp - _playerlog[msg.sender].timestamp > 1 minutes,
             "wait for your time"
         );
-        require(_minerlog[msg.sender].staked != true, "you are already mining");
         require(
-            gameNFT.ownerOf(_minerId) == msg.sender,
+            _playerlog[msg.sender].staked != true,
+            "you are already on the game"
+        );
+        require(
+            gameNFT.ownerOf(_nftId) == msg.sender,
             "you are not owner of the NFT"
         );
 
         require(
-            _minerlog[msg.sender].stamina >= _mines[_mineId].staminaRequired,
+            _playerlog[msg.sender].stamina >=
+                _locations[_locationId].staminaRequired,
             "you don't have enough stamina"
         );
 
-        _minerlog[msg.sender].minerId = _minerId;
-        _minerlog[msg.sender].mineId = _mineId;
-        _minerlog[msg.sender].timestamp = block.timestamp;
+        _playerlog[msg.sender].nftId = _nftId;
+        _playerlog[msg.sender].locationId = _locationId;
+        _playerlog[msg.sender].timestamp = block.timestamp;
 
-        _minerlog[msg.sender].stamina =
-            _minerlog[msg.sender].stamina -
-            _mines[_mineId].staminaRequired;
+        _playerlog[msg.sender].stamina =
+            _playerlog[msg.sender].stamina -
+            _locations[_locationId].staminaRequired;
 
         //luckey implementation.......
         //add chain link vrf....
         // . .. to doo...
         // check contract have rewards in pool?
 
-        gameNFT.safeTransferFrom(msg.sender, address(this), _minerId);
-        _minerlog[msg.sender].staked = true;
+        gameNFT.safeTransferFrom(msg.sender, address(this), _nftId);
+        _playerlog[msg.sender].staked = true;
         //need to fix reward with chainkink VRF
-        _minerlog[msg.sender].reward = _minerlog[msg.sender].reward + 4 ether;
+        _playerlog[msg.sender].reward = _playerlog[msg.sender].reward + 4 ether;
     }
 
     function redeemReward() public payable {
-        require(_minerlog[msg.sender].staked, "You havn't staked");
-        require(
-            block.timestamp - _minerlog[msg.sender].timestamp > 1 minutes,
-            "wait for your time"
-        );
+        require(_playerlog[msg.sender].staked);
+        require(block.timestamp - _playerlog[msg.sender].timestamp > 1 minutes);
 
         gameNFT.safeTransferFrom(
             address(this),
             msg.sender,
-            _minerlog[msg.sender].minerId
+            _playerlog[msg.sender].nftId
         );
-        _minerlog[msg.sender].staked = false;
+        _playerlog[msg.sender].staked = false;
 
-        gameToken.transfer(msg.sender, _minerlog[msg.sender].reward);
-        _minerlog[msg.sender].reward = 0;
+        gameToken.transfer(msg.sender, _playerlog[msg.sender].reward);
+        _playerlog[msg.sender].reward = 0;
     }
 
     function increaseStamina(uint256 _amount) public payable {
         gameToken.transferFrom(msg.sender, address(this), _amount);
-        _minerlog[msg.sender].stamina =
-            _minerlog[msg.sender].stamina +
+        _playerlog[msg.sender].stamina =
+            _playerlog[msg.sender].stamina +
             (_amount / 1 ether);
     }
 
     //only owner
-    function setMines(
+    function setLocations(
         uint256 _id,
         string memory _name,
         uint256 _lucky,
@@ -124,7 +128,7 @@ contract TheGame is IERC721Receiver, Ownable {
         uint256 _rewardLowerLimit,
         uint256 _rewardUpperLimit
     ) public onlyOwner {
-        _mines[_id] = Mines(
+        _locations[_id] = Locations(
             _name,
             _lucky,
             _staminaRequired,
