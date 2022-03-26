@@ -5,8 +5,9 @@ pragma solidity ^0.8.7;
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@chainlink/contracts/src/v0.8/VRFConsumerBase.sol";
 
-contract GameNFT is ERC721Enumerable, Ownable {
+contract GameNFT is ERC721Enumerable, VRFConsumerBase, Ownable {
     using Strings for uint256;
 
     string public baseURI;
@@ -19,10 +20,16 @@ contract GameNFT is ERC721Enumerable, Ownable {
     mapping(address => bool) public whitelisted;
     mapping(address => bool) public presaleWallets;
 
-    struct AxeMeta {
+    struct NFTMeta {
         uint256 level;
+        uint256 lucky;
     }
-    mapping(uint256 => AxeMeta) public _axeMeta;
+    mapping(uint256 => NFTMeta) public _nftMeta;
+
+    bytes32 internal keyHash;
+    uint256 internal fee;
+
+    mapping(bytes32 => address) requestToSender;
 
     IERC20 public gameToken;
 
@@ -30,10 +37,15 @@ contract GameNFT is ERC721Enumerable, Ownable {
         string memory _name,
         string memory _symbol,
         string memory _initBaseURI,
-        address _gameTokenAddress
-    ) ERC721(_name, _symbol) {
+        address _gameTokenAddress,
+        address _VRFcoordinator,
+        address _linkToken,
+        bytes32 _keyHash
+    ) ERC721(_name, _symbol) VRFConsumerBase(_VRFcoordinator, _linkToken) {
         setBaseURI(_initBaseURI);
         gameToken = IERC20(_gameTokenAddress);
+        keyHash = _keyHash;
+        fee = 0.0001 * 10**18;
     }
 
     // internal
@@ -42,52 +54,56 @@ contract GameNFT is ERC721Enumerable, Ownable {
     }
 
     // public
-    function mint(address _to, uint256 _mintAmount) public payable {
+
+    function orderMysteryBox() public payable returns (bytes32) {
+        require(
+            LINK.balanceOf(address(this)) >= fee,
+            "Not enough LINK - fill contract with faucet"
+        );
         uint256 supply = totalSupply();
         require(!paused);
-        require(_mintAmount > 0);
-        require(_mintAmount <= maxMintAmount);
-        require(supply + _mintAmount <= maxSupply);
-
-        //custom token implementation....
-        // .............to do ..............
+        require(supply + 1 <= maxSupply);
 
         if (msg.sender != owner()) {
             if (whitelisted[msg.sender] != true) {
                 if (presaleWallets[msg.sender] != true) {
                     //general public
                     require(
-                        gameToken.transferFrom(
-                            msg.sender,
-                            address(this),
-                            cost * _mintAmount
-                        ),
+                        gameToken.transferFrom(msg.sender, address(this), cost),
                         "Pay Up"
                     );
                 } else {
                     //presale
-                    require(msg.value >= presaleCost * _mintAmount);
                     require(
                         gameToken.transferFrom(
                             msg.sender,
                             address(this),
-                            presaleCost * _mintAmount
+                            presaleCost
                         ),
                         "Pay Up"
                     );
                 }
             }
         }
+        bytes32 requestId = requestRandomness(keyHash, fee);
+        requestToSender[requestId] = msg.sender;
+        return requestId;
+    }
 
-        for (uint256 i = 1; i <= _mintAmount; i++) {
-            _safeMint(_to, supply + i);
+    function fulfillRandomness(bytes32 requestId, uint256 randomness)
+        internal
+        override
+    {
+        uint256 supply = totalSupply();
+        _safeMint(requestToSender[requestId], supply + 1);
+        _nftMeta[supply + 1] = NFTMeta(
+            (randomness % 6) + 1,
+            ((randomness % 6) + 1) * 5
+        );
+    }
 
-            // level implementation
-            //add chain link vrf....
-            //.........to do.........
-
-            _axeMeta[supply + i] = AxeMeta(2);
-        }
+    function getLucky(uint256 _id) public view returns (uint256) {
+        return _nftMeta[_id].lucky;
     }
 
     function walletOfOwner(address _owner)
