@@ -106,7 +106,7 @@ contract GameNFT is ERC721Enumerable, VRFConsumerBase, Ownable {
         require(supply + 1 <= maxSupply);
         require(balanceOf(_referid) > 0);
 
-        uint256 OfferPrice = cost - (cost * 0.1);
+        uint256 OfferPrice = cost - ((cost * 1) / 10);
 
         if (msg.sender != owner()) {
             if (whitelisted[msg.sender] != true) {
@@ -120,7 +120,7 @@ contract GameNFT is ERC721Enumerable, VRFConsumerBase, Ownable {
                         ),
                         "Pay Up"
                     );
-                    gameToken.transferFrom(address(this), _referid, cost * 0.1);
+                    gameToken.transfer(_referid, (cost * 1) / 10);
                 } else {
                     //presale
                     require(
@@ -222,8 +222,8 @@ contract GameNFT is ERC721Enumerable, VRFConsumerBase, Ownable {
         paused = _state;
     }
 
-    function referalPaused(bool _state) public onlyOwner {
-        paused = _state;
+    function referalPause(bool _state) public onlyOwner {
+        referalPaused = _state;
     }
 
     function whitelistUser(address _user) public onlyOwner {
