@@ -90,6 +90,54 @@ contract GameNFT is ERC721Enumerable, VRFConsumerBase, Ownable {
         return requestId;
     }
 
+    //refer & earn .
+    function orderReferalBox(address _referid)
+        public
+        payable
+        returns (bytes32)
+    {
+        require(
+            LINK.balanceOf(address(this)) >= fee,
+            "Not enough LINK - fill contract with faucet"
+        );
+        uint256 supply = totalSupply();
+        require(!paused);
+        require(supply + 1 <= maxSupply);
+        require(balanceOf(_referid) > 0);
+
+        uint256 OfferPrice = cost - (cost * 0.1);
+
+        if (msg.sender != owner()) {
+            if (whitelisted[msg.sender] != true) {
+                if (presaleWallets[msg.sender] != true) {
+                    //general public
+                    require(
+                        gameToken.transferFrom(
+                            msg.sender,
+                            address(this),
+                            OfferPrice
+                        ),
+                        "Pay Up"
+                    );
+                    gameToken.transferFrom(address(this), _referid, cost * 0.1);
+                } else {
+                    //presale
+                    require(
+                        gameToken.transferFrom(
+                            msg.sender,
+                            address(this),
+                            presaleCost
+                        ),
+                        "Pay Up"
+                    );
+                }
+            }
+        }
+        bytes32 requestId = requestRandomness(keyHash, fee);
+        requestToSender[requestId] = msg.sender;
+        return requestId;
+    }
+
     function fulfillRandomness(bytes32 requestId, uint256 randomness)
         internal
         override
