@@ -17,6 +17,7 @@ contract GameNFT is ERC721Enumerable, VRFConsumerBase, Ownable {
     uint256 public maxSupply = 50000;
     uint256 public maxMintAmount = 5;
     bool public paused = false;
+    bool public referalPaused = false;
     mapping(address => bool) public whitelisted;
     mapping(address => bool) public presaleWallets;
 
@@ -101,7 +102,7 @@ contract GameNFT is ERC721Enumerable, VRFConsumerBase, Ownable {
             "Not enough LINK - fill contract with faucet"
         );
         uint256 supply = totalSupply();
-        require(!paused);
+        require(!referalPaused);
         require(supply + 1 <= maxSupply);
         require(balanceOf(_referid) > 0);
 
@@ -218,6 +219,10 @@ contract GameNFT is ERC721Enumerable, VRFConsumerBase, Ownable {
     }
 
     function pause(bool _state) public onlyOwner {
+        paused = _state;
+    }
+
+    function referalPaused(bool _state) public onlyOwner {
         paused = _state;
     }
 
