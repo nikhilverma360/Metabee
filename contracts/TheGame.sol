@@ -162,6 +162,22 @@ contract TheGame is IERC721Receiver, VRFConsumerBase, Ownable {
             (_amount / 1 ether);
     }
 
+    function getReward() public view returns (uint256) {
+        return _playerlog[msg.sender].reward;
+    }
+
+    function getStamina() public view returns (uint256) {
+        return _playerlog[msg.sender].stamina;
+    }
+
+    function getStatus() public view returns (uint256) {
+        return _playerlog[msg.sender].status;
+    }
+
+    function getTimestamp() public view returns (uint256) {
+        return _playerlog[msg.sender].timestamp;
+    }
+
     //only owner
     function setLocations(
         uint256 _id,
