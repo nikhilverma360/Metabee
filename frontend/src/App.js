@@ -125,7 +125,8 @@ function App() {
         <Routes>
           <Route path="/" caseSensitive={false} element={<Dashboard />} />
           <Route path="/dashboard" caseSensitive={false} element={<Dashboard />} />
-          <Route path="/register" caseSensitive={false} element={<MysteryBox />} />
+          <Route path="/MystryBox" caseSensitive={false} element={<MysteryBox />} />
+          <Route path="/StartGame" caseSensitive={false} element={<StartGame address={currentAccount} />} />
 
         </Routes>
       </Router>

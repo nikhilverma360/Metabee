@@ -1,0 +1,411 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "increaseStamina",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "joinGame",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bytes",
+                "name": "",
+                "type": "bytes"
+            }
+        ],
+        "name": "onERC721Received",
+        "outputs": [
+            {
+                "internalType": "bytes4",
+                "name": "",
+                "type": "bytes4"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "requestId",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "uint256",
+                "name": "randomness",
+                "type": "uint256"
+            }
+        ],
+        "name": "rawFulfillRandomness",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_gameTokenAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_gameNFTAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_VRFcoordinator",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_linkToken",
+                "type": "address"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "_keyHash",
+                "type": "bytes32"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+    },
+    {
+        "inputs": [],
+        "name": "redeemReward",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_id",
+                "type": "uint256"
+            },
+            {
+                "internalType": "string",
+                "name": "_name",
+                "type": "string"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_lucky",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_staminaRequired",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_rewardLowerLimit",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_rewardUpperLimit",
+                "type": "uint256"
+            }
+        ],
+        "name": "setLocations",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_nftId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_locationId",
+                "type": "uint256"
+            }
+        ],
+        "name": "startHunting",
+        "outputs": [
+            {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "withdrawERC20",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "withdrawETH",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "_locations",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "internalType": "uint256",
+                "name": "lucky",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "staminaRequired",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "rewardLowerLimit",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "rewardUpperLimit",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "_playerlog",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "gameJoined",
+                "type": "bool"
+            },
+            {
+                "internalType": "bool",
+                "name": "staked",
+                "type": "bool"
+            },
+            {
+                "internalType": "uint256",
+                "name": "nftId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "locationId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "timestamp",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "reward",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "stamina",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "status",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "gameNFT",
+        "outputs": [
+            {
+                "internalType": "contract IERC721",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "gameToken",
+        "outputs": [
+            {
+                "internalType": "contract IERC20",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getReward",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getStamina",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getStatus",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getTimestamp",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
