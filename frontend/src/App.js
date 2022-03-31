@@ -123,9 +123,9 @@ function App() {
     return (<div >
       <Router>
         <Routes>
-          <Route path="/" caseSensitive={false} element={<Dashboard />} />
-          <Route path="/dashboard" caseSensitive={false} element={<Dashboard />} />
-          <Route path="/MystryBox" caseSensitive={false} element={<MysteryBox />} />
+          <Route path="/" caseSensitive={false} element={<Dashboard address={currentAccount} />} />
+          <Route path="/dashboard" caseSensitive={false} element={<Dashboard address={currentAccount} />} />
+          <Route path="/MystryBox" caseSensitive={false} element={<MysteryBox address={currentAccount} />} />
           <Route path="/StartGame" caseSensitive={false} element={<StartGame address={currentAccount} />} />
 
         </Routes>
