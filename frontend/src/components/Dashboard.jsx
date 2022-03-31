@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import gameContractAbi from '../utils/gameContractABI.json';
 const GAME_CONTRACT_ADDRESS = '0x8c2ceD72Cf6CBFc39f62992619B50DADf2607d61';
+
 function Dashboard(props) {
     const [myReward, setMyReward] = useState(0);
     const [myStamina, setMySatmina] = useState(0);
@@ -47,17 +48,18 @@ function Dashboard(props) {
         getReward();
     }, []);
 
-    return (<div><
-        h1>Dashboard</h1><hr /><br />
-        Your Address is {props.address}
-        <br />
-        Reward : {myReward} <br />
-        <button className='bg-sky-600 hover:bg-sky-700 rounded-lg'>claim</button>
-        <br />
-        Stamina : {myStamina}<br />
-        increase stamina <input className='px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border-3 shadow outline-black focus:outline-black focus:ring' type="text"></input>
-        <button className='bg-sky-600 hover:bg-sky-700 rounded-lg'>increase</button>
-    </div>);
+    return (
+        <div className="text-xl text-white" >
+            <h1>Dashboard</h1><hr /><br />
+            Your Address is {props.address}
+            <br />
+            Reward : {myReward} <br />
+            <button className='bg-sky-600 hover:bg-sky-700 rounded-lg'>claim</button>
+            <br />
+            Stamina : {myStamina}<br />
+            increase stamina <input className='px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border-3 shadow outline-black focus:outline-black focus:ring' type="text"></input>
+            <button className='bg-sky-600 hover:bg-sky-700 rounded-lg'>increase</button>
+        </div>);
 
 }
 export default Dashboard;

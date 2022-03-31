@@ -5,6 +5,7 @@ import MysteryBox from "./components/MysteryBox";
 import StartGame from "./components/StartGame";
 import { networks } from './utils/networks';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import bgImage from './assets/bg-image.svg';
 
 function App() {
   const [currentAccount, setCurrentAccount] = useState('');
@@ -138,7 +139,12 @@ function App() {
   }, []);
 
   return (
-    < div >
+    < div className="w-full h-screen font-Righteous font-bold" style={{
+      backgroundImage: `url(${bgImage})`,
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat'
+    }}>
       <Navbar />
       {!currentAccount && renderNotConnectedContainer()}
       {currentAccount && renderConnectedContainer()}
