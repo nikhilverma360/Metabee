@@ -47,7 +47,7 @@ function Dashboard(props) {
         getReward();
     }, []);
 
-    return (<><
+    return (<div><
         h1>Dashboard</h1><hr /><br />
         Your Address is {props.address}
         <br />
@@ -57,7 +57,7 @@ function Dashboard(props) {
         Stamina : {myStamina}<br />
         increase stamina <input className='px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border-3 shadow outline-black focus:outline-black focus:ring' type="text"></input>
         <button className='bg-sky-600 hover:bg-sky-700 rounded-lg'>increase</button>
-    </>);
+    </div>);
 
 }
 export default Dashboard;
