@@ -5,7 +5,7 @@ import MysteryBox from "./components/MysteryBox";
 import StartGame from "./components/StartGame";
 import { networks } from './utils/networks';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import bgImage from './assets/bg-image.svg';
+import bgImage from './assets/bg-page-content.svg';
 
 function App() {
   const [currentAccount, setCurrentAccount] = useState('');
@@ -103,22 +103,29 @@ function App() {
   }
 
   // Render Methods
-  const renderNotConnectedContainer = () => (
-    <div>
-      <button onClick={connectWallet} className="bg-sky-600 hover:bg-sky-700 rounded-lg">
-        Connect Wallet
-      </button>
-    </div>
+  const renderNotConnectedContainer = () => (<>
+    <center>
+      <div className="text-6xl pt-32">
+        <button onClick={connectWallet} className="rounded-lg bg-yellow-400 hover:opacity-75 p-8">
+          Connect Wallet
+        </button>
+      </div>
+    </center>
+  </>
   );
 
   const renderConnectedContainer = () => {
     if (network !== 'Polygon Mumbai Testnet') {
-      return (
-        <div className="connect-wallet-container">
-          <h2>Please switch to Polygon Mumbai Testnet</h2>
-          {/* This button will call our switch network function */}
-          <button className='bg-sky-600 hover:bg-sky-700 rounded-lg' onClick={switchNetwork}>Click here to switch</button>
-        </div>
+      return (<>
+        <center>
+          <div className="text-6xl pt-32">
+            <h2>Please switch to Polygon Mumbai Testnet</h2>
+            <br />
+            {/* This button will call our switch network function */}
+            <button className='rounded-lg bg-yellow-400 hover:opacity-75 p-8' onClick={switchNetwork}>Click here to switch</button>
+          </div>
+        </center>
+      </>
       );
     }
     return (<div >
@@ -139,9 +146,9 @@ function App() {
   }, []);
 
   return (
-    < div className="w-full h-screen font-Righteous font-bold" style={{
+    < div className="w-full h-screen font-Righteous font-bold bg-scroll" style={{
       backgroundImage: `url(${bgImage})`,
-      backgroundPosition: 'center',
+      backgroundPosition: 'top',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat'
     }}>
