@@ -40,7 +40,7 @@ export default function Navbar({ fixed }) {
                             <li className="nav-item">
                                 <a
                                     className="px-3 py-2 flex items-center  uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    href="#pablo"
+                                    href="collections"
                                 >
                                     <span className="ml-2">Collections</span>
                                 </a>
@@ -48,7 +48,7 @@ export default function Navbar({ fixed }) {
                             <li className="nav-item">
                                 <a
                                     className="px-3 py-2 flex items-center  uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    href="/MystryBox"
+                                    href="/MysteryBox"
                                 >
                                     <span className="ml-2">Mystery Box</span>
                                 </a>
@@ -56,7 +56,7 @@ export default function Navbar({ fixed }) {
                             <li className="nav-item">
                                 <a
                                     className="px-3 py-2 flex items-center  uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    href="#pablo"
+                                    href="/marketplace"
                                 >
                                     <span className="ml-2">Marketplace</span>
                                 </a>
@@ -64,9 +64,9 @@ export default function Navbar({ fixed }) {
                             <li className="nav-item">
                                 <a
                                     className="px-3 py-2 flex items-center  uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    href="#pablo"
+                                    href="/farms"
                                 >
-                                    <span className="ml-2">farm</span>
+                                    <span className="ml-2">farms</span>
                                 </a>
                             </li>
                             <li className="nav-item">
