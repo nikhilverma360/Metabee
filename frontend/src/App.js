@@ -3,6 +3,9 @@ import Navbar from "./components/items/Navbar";
 import Dashboard from "./components/Dashboard";
 import MysteryBox from "./components/MysteryBox";
 import StartGame from "./components/StartGame";
+import NFTcollections from "./components/NFTcollection";
+import Farms from "./components/Farms";
+import Marketplace from "./components/Marketplace";
 import { networks } from './utils/networks';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import bgImage from './assets/bg-page-content.svg';
@@ -133,8 +136,11 @@ function App() {
         <Routes>
           <Route path="/" caseSensitive={false} element={<Dashboard address={currentAccount} />} />
           <Route path="/dashboard" caseSensitive={false} element={<Dashboard address={currentAccount} />} />
-          <Route path="/MystryBox" caseSensitive={false} element={<MysteryBox address={currentAccount} />} />
+          <Route path="/MysteryBox" caseSensitive={false} element={<MysteryBox address={currentAccount} />} />
           <Route path="/StartGame" caseSensitive={false} element={<StartGame address={currentAccount} />} />
+          <Route path="/Collections" caseSensitive={false} element={<NFTcollections address={currentAccount} />} />
+          <Route path="/Marketplace" caseSensitive={false} element={<Marketplace address={currentAccount} />} />
+          <Route path="/Farms" caseSensitive={false} element={<Farms address={currentAccount} />} />
 
         </Routes>
       </Router>
