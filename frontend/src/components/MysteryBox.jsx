@@ -12,6 +12,9 @@ function MystryBox(props) {
                 <div className="rounded-3xl bg-[#33110060]   grid lg:grid-cols-2">
                     <div className="p-8 lg:px-32">
                         <div className="rounded-3xl pb-4 bg-gradient-to-r from-[#4d1a00] via-[#802b00] to-[#4d1a00]  shadow-2xl ">
+                            <div className="rounded-lg bg-gradient-to-r from-[#ff5500b9] via-red-500 to-[#ff5500b9] hover:opacity-75 text-center px-4 border-1 border-yellow-400 text-white">
+                                <p className="p-2 ">Available every Sunday at 12:00 GMT for 1 hour </p>
+                            </div>
                             <center> <img className="max-h-60 " src={giftImage}></img> </center>
                             <br />
                             <center><input className='px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm border-3 shadow outline-black focus:outline-black focus:ring' type="text" placeholder="Enter referral ID"></input></center>
