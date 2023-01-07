@@ -28,20 +28,10 @@ more rewards through a multi-level Referral system.
     
 ## **Play-to-Earn Features**
     
-- **Different Locations for Nectar Hunting** :◦ Players can select an area to send bees for nectar
-
-collection. The larger the area, the more reward they
-
-earn.
-
+- **Different Locations for Nectar Hunting** :◦ Players can select an area to send bees for nectar collection. The larger the area, the more reward they earn.
 - **Bee-Market** :◦ Where players can exchange Honey Bees with others.
-- **Honey Making Tournaments** :◦ Player can participate in the honey making tournaments
-
-for valued reward in $HONEY.
-
-- **PvP Battles** :◦ Participate Bees Vs Bees battles and earn rewards in
-
-$HONEY.
+- **Honey Making Tournaments** :◦ Player can participate in the honey making tournaments for valued reward in $HONEY.
+- **PvP Battles** :◦ Participate Bees Vs Bees battles and earn rewards in $HONEY.
 
 **Statistics**
 
