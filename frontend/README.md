@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# MetaBee | Play-to-Earn Metaverse
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+***Multilevel Referral Play-to-Earn Metaverse NFT platform on Polygon Chain.***
 
-## Available Scripts
+<img width="491" alt="Screenshot 2023-01-07 at 1 38 55 PM" src="https://user-images.githubusercontent.com/32412967/211140747-70fc34ae-8149-4c62-8f4b-3171c6787be8.png">
 
-In the project directory, you can run:
+## **Decentralised Honey Making Gameplay**
 
-### `npm start`
+- **Metabee** is a digital universe in which users take on the role
+of **HoneyBees** (with their multiple skills/ power/ roles)
+serving as valuable and marketable NFT assets.
+- Users can purchase **Bees** in shop or **exchange at Bee-
+market**, care their bees before they die, participate in the
+honey making tournament.
+- **$HONEY , Nectar Hunter**(Play-to-Earn), **Player Starter
+Boxes **(NFT), **Honey Bee Collection** (NFT), **Nectar
+Garden Areas, Bee-Market** and **Referral System** are all
+part of the **MetaBee** ecosystem. Our mission is to create a
+Honey Bee Metaverse in which players can enjoy bee-life.
+MetaBee Referral System
+- Players can build their own team via the **MetaBee Referral
+System** in which the more Players they recruit, the more
+$HONEY rewards they get.
+- The complete MetaBee ecosystem provides investors with a
+sustainable passive income stream simply by playing,
+collecting high-tier Bees to sell on the Bee-market and earning
+more rewards through a multi-level Referral system.
+    
+## **Play-to-Earn Features**
+    
+- **Different Locations for Nectar Hunting** :◦ Players can select an area to send bees for nectar
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+collection. The larger the area, the more reward they
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+earn.
 
-### `npm test`
+- **Bee-Market** :◦ Where players can exchange Honey Bees with others.
+- **Honey Making Tournaments** :◦ Player can participate in the honey making tournaments
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+for valued reward in $HONEY.
 
-### `npm run build`
+- **PvP Battles** :◦ Participate Bees Vs Bees battles and earn rewards in
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+$HONEY.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Statistics**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img width="508" alt="Screenshot 2023-01-07 at 1 50 14 PM" src="https://user-images.githubusercontent.com/32412967/211141141-ae61ada4-93da-4da5-8d8b-c452e494c350.png">
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## **Roadmap**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Phase-1**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- EthIndia- Ethernals Hackathon Showcase ✅
+- Design of NFTs, characters, etc. ✅
+- Website development✅
+- Smart contract audit
+- Airdrop program
+- Testnet with basic play-to-earn feature.✅
+    
+    **Phase-2**
+    
+- Token pre-sale
+- Dex listing
+- Team token & liquidity pool locked
+- Mainnet game with basic play-to-earn features
+- Coingecko, Coinmarketcap listing
+- Launching Bee-marketplace
+    
+    **Phase-3**
+    
+- Limited Player Starter Kit Supply
+- PvP | Bee versus Bee
+- Staking / Farming
+    
+    **Phase-4**
+    
+- Feature : Bee Evolution, Power Ups
+- Feature : Items - Energy Potion, Enhancement Gem, etc
+- Feature: Fashion - Outfit, Sunglasses, Colours, etc.
+- Feature : Add More Locations.
