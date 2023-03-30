@@ -4,6 +4,8 @@
 
 <img width="491" alt="Screenshot 2023-01-07 at 1 38 55 PM" src="https://user-images.githubusercontent.com/32412967/211140747-70fc34ae-8149-4c62-8f4b-3171c6787be8.png">
 
+
+
 ## **Decentralised Honey Making Gameplay**
 
 - **Metabee** is a digital universe in which users take on the role
@@ -25,6 +27,12 @@ $HONEY rewards they get.
 sustainable passive income stream simply by playing,
 collecting high-tier Bees to sell on the Bee-market and earning
 more rewards through a multi-level Referral system.
+
+## **ScreenShots**
+![DashBoard](https://user-images.githubusercontent.com/32412967/228751441-1fc1a25b-35fc-4bee-9746-135930eb875d.png)
+![Mystry Box](https://user-images.githubusercontent.com/32412967/228751452-0dda4294-c8fd-441a-a8ae-fb62f8250705.png)
+![Play](https://user-images.githubusercontent.com/32412967/228751460-ae36f40c-c2c9-4e77-8e6b-cebe870e1a2d.png)
+
     
 ## **Play-to-Earn Features**
     
